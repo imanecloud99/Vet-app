@@ -1,0 +1,26 @@
+extends ../_master
+
+block scripts
+
+block head
+   title Log In
+block body
+    h1 Log In
+    != messages()
+    div.jumbotron.col-lg-6
+        form.form-horizontal(action="/login", method="POST")
+            fieldset
+                section.form-group
+                    label.col-lg-2.control-label(for='inputUsername') Username
+                    div.col-lg-10
+                        input#inputUsername.form-control(placeholder='Username', name='username', autocomplete='off', type='text', required)
+                section.form-group
+                    label.col-lg-2.control-label(for='inputPassword') Password
+                    div.col-lg-10
+                        input#inputPassword.form-control(placeholder='Password', name='password', autocomplete='off', type='password', required)
+                section.form-group
+                    div.col-lg-10.col-lg-offset-2
+                        button.btn.btn-default(type='reset') Cancel
+                        button.btn.btn-primary(type='submit') Submit
+
+    script(src="/static/js/login.js")

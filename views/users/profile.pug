@@ -1,0 +1,115 @@
+extends ../_master
+
+block scripts
+    script(src="/libs/bootstrap-datepicker/js/bootstrap-datepicker.js")
+block head
+    title Profile
+block body
+    div.row
+        h1= context.user.username + '\'s profile'
+        != messages()
+        div#wrapper.jumbotron.col-lg-10
+            button.btn.btn-default(id='btn-info', type='button', data-toggle='collapse', data-target='#collapseMenuFirst', aria-expanded='false', aria-controls='collapseExample')
+                | Profile's Information
+            button.btn.btn-default(id='btn-add-pet', type='button', data-toggle='collapse', data-target='#collapseMenuSecond', aria-expanded='false', aria-controls='collapseExample')
+                | Add Your Pet
+        div#collapseMenuFirst.collapse
+            .card.card-block
+                div.jumbotron.col-lg-10
+                    fieldset
+                        section.form-group
+                            div.col-lg-10.col-lg-offset-2
+                                p(style='display:none;')
+                                    inline
+                                        =context.user._id
+                                p
+                                    font(size="3em") Your Name:
+                                    inline#fullName
+                                        =context.user.fullName
+                                    input(name="address" style='display:none;' autocomplete='off', type='text', required)
+                                    img.edit(src='/static/img/icons/edit.png', style='width:15px')
+                                    img.ok(src='/static/img/icons/ok.png', style='display:none; width:20px')
+                                p
+                                    font(size="3em") Your Address:
+                                    inline#ownerAddress
+                                        =context.user.address
+                                    input(name="address" style='display:none;' autocomplete='off', type='text', required)
+                                    img.edit(src='/static/img/icons/edit.png', style='width:15px')
+                                    img.ok(src='/static/img/icons/ok.png', style='display:none; width:20px')
+                                p
+                                    font(size="3em") Your Phone:
+                                    inline#ownerPhone
+                                        =context.user.phone
+                                    input(name="phone" style='display:none;' autocomplete='off', type='text', required)
+                                    img.edit(src='/static/img/icons/edit.png', style='width:15px')
+                                    img.ok(src='/static/img/icons/ok.png', style='display:none; width:20px')
+                                p
+                                    inline#password
+                                        =context.user.password
+                                    input(name="password" style='display:none;' placeholder="Enter new password..." autocomplete='off', type='password', required)
+                                    button.edit.btn.btn-primary
+                                        | Change password
+                                    img.ok(src='/static/img/icons/ok.png', style='display:none; width:20px')
+                                button.btn.btn-default(style='display:none;')
+                                    | Cancel
+                                button.btn.btn-success(style='display:none;')
+                                    | Update
+
+        div#collapseMenuSecond.collapse
+            .card.card-block
+                div.jumbotron.col-lg-10
+                    form.form-horizontal(action="/animals", method="POST", name="addPetForm")
+                        fieldset
+                            section.form-group
+                                label.col-lg-2.control-label(for='inputPetName') Pet Name
+                                div.col-lg-10
+                                    input#inputPetName.form-control(placeholder='Pet name', name='name', autocomplete='off', type='text', required)
+                            section.form-group
+                                label.col-lg-2.control-label(for='inputPetKind') Pet Kind
+                                div.col-lg-10
+                                    input#inputPetKind.form-control(placeholder='Pet kind', name='type', autocomplete='off', type='text', required)
+                            section.form-group
+                                label.col-lg-2.control-label(for='inputPetBreed') Pet Breed
+                                div.col-lg-10
+                                    input#inputPetBreed.form-control(placeholder='Pet breed', name='breed', autocomplete='off', type='text', required)
+                            section.form-group
+                                label.col-lg-2.control-label(for='inputPetBirthDate') Pet Birth Date
+                                div.col-lg-10
+                                    input#inputPetBirthDate.form-control.datepicker(name='birthDate', placeholder='Pet birth date' autocomplete='off', type='text', required)
+                            section.form-group(style='display:none;')
+                                div.col-lg-10
+                                    input.form-control(name='ownerId', type='text', value=context.user._id)
+                            section.form-group(style='display:none;')
+                                div.col-lg-10
+                                    input.form-control(name='ownerUsername', type='text', value=context.user.username)
+                            section.form-group(style='display:none;')
+                                div.col-lg-10
+                                    input.form-control(name='ownerAddress', type='text', value=context.user.address)
+                            section.form-group(style='display:none;')
+                                div.col-lg-10
+                                    input.form-control(name='ownerPhone', type='text', value=context.user.phone)
+                            section.form-group(style='display:none;')
+                                div.col-lg-10
+                                    input.form-control(name='checkUp', type='text', value='no check-ups')
+                            section.form-group
+                                div.col-lg-10.col-lg-offset-2
+                                    button.btn.btn-primary(type='submit') Add Animal
+        div.col-lg-10
+            h3 My pets:
+            table.table.table-hover
+                thead
+                    tr 
+                        th Name
+                        th Kind
+                        th Breed
+                        th Birth date
+                        th Check-up
+                tbody
+                    each pet in context.animals
+                        tr
+                            td= pet.name
+                            td= pet.type
+                            td= pet.breed
+                            td= pet.birthDate
+                            td= pet.checkUp
+    script(src="/static/js/controllers/profile.controller.js")

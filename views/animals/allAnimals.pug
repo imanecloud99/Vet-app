@@ -1,0 +1,67 @@
+extends ../_master
+
+block scripts
+    script(src="libs/bootstrap-3-typeahead/bootstrap3-typeahead.js")
+    script(src="/libs/bootstrap-datepicker/js/bootstrap-datepicker.js")
+block head
+    title All Animals Page
+block body
+    h1 All Animals
+    div.search.jumbotron.col-lg-10
+        input#searchField.form-control(type='text', required name="search" placeholder="Search by username..." autocomplete="off")
+        button#searchBtn.btn.btn-default
+            | Search
+    h4#warning(style='display:none;') The following username doesn't exist! Please try to make a different search :)
+    ol.petsList
+        each pet in context.animals
+            li(id = pet.id style='display:none;')
+                p
+                    strong Pet Name:
+                    inline
+                        =pet.name
+                p
+                    strong Pet Type:
+                    inline
+                        =pet.type
+                p
+                    strong Pet Breed:
+                    inline
+                        =pet.breed
+                p
+                    strong Pet Birth Date:
+                    inline
+                        =pet.birthDate
+                p
+                    strong Pet Owner Username:
+                    inline.username
+                        =pet.ownerUsername
+                p(style='display:none;')
+                    inline.ownerId
+                        =pet.ownerId
+                p.ownerAddress(style='display:none;')
+                    strong Owner Address:
+                    inline
+                        =pet.ownerAddress
+                    input(name="ownerAddress" style='display:none;')
+                    img.edit(src='/static/img/icons/edit.png', style='width:15px')
+                    img.ok(src='/static/img/icons/ok.png', style='display:none; width:17px')
+                p.ownerPhone(style='display:none;')
+                    strong Owner Phone:
+                    inline
+                        =pet.ownerPhone
+                    input(name="ownerPhone" style='display:none;')
+                    img.edit(src='/static/img/icons/edit.png', style='width:15px')
+                    img.ok(src='/static/img/icons/ok.png', style='display:none; width:17px')
+                p
+                    strong Pet Check Up:
+                    inline
+                        =pet.checkUp
+                    input.datepicker(name="checkUp" style='display:none;')
+                    img.edit(src='/static/img/icons/edit.png', style='width:15px')
+                    img.ok(src='/static/img/icons/ok.png', style='display:none; width:17px')
+                button.btn.btn-default(style='display:none;')
+                    | Cancel
+                button.btn.btn-success(style='display:none;')
+                    | Update
+                hr.spacing(style='display:none;')
+    script(src="/static/js/controllers/allAnimals.controller.js")

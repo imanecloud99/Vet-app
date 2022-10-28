@@ -1,0 +1,41 @@
+mixin nav()
+    nav.navbar.navbar-default
+        div.container-fluid
+            div.navbar-header
+                button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href='/' alt="Pet Vet")
+                    img(src="/static/img/PetVet_logo.png")
+            div#bs-example-navbar-collapse-1.collapse.navbar-collapse
+                ul.nav.navbar-nav
+                    li(id="nav-btn-home")
+                        a(href='/') Home 
+                            span.sr-only (current)
+                    li(id="nav-btn-aboutUs")
+                        a(href='/aboutUs') About Us
+                    li(id="nav-btn-contactUs")
+                        a(href='/contactUs') Contact Us
+                    if !context.user.isAnonymous
+                        li(id="nav-btn-petsCare")
+                            a(href='/petsCare') Pets Care
+                    if context.user.isAdmin === 'true'
+                        li(id="nav-btn-all-animals")
+                            a(href='/allAnimals') All Animals
+                ul.nav.navbar-nav.navbar-right
+                    if context.user.isAnonymous
+                        li(id="nav-btn-login")
+                            a(href='/login') Log In
+                        li(id="nav-btn-register")
+                            a(href='/register') Register
+                    else
+                        li(id="nav-btn-chat")
+                            a(href='/chat') Chat
+                        li(id="nav-btn-profile")
+                            a(href='/profile') Hi,
+                                inline
+                                    =' ' + context.user.username
+                        li(id="nav-btn-logout")
+                            a(href='/logout') Log Out

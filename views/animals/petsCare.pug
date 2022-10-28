@@ -1,0 +1,84 @@
+extends ../_master
+
+block scripts
+
+block head
+    title Pets Care
+block body
+    h1 Pets Care
+    script(src="/static/js/petsCare.js")
+
+    div#wrapper.jumbotron.col-lg-10
+        button.btn.btn-default(id='btn-general', type='button', data-toggle='collapse', data-target='#collapseMenuGeneral', aria-expanded='false', aria-controls='collapseExample')
+            | General Pet Care
+        button.btn.btn-default(id='btn-dog', type='button', data-toggle='collapse', data-target='#collapseMenuDog', aria-expanded='false', aria-controls='collapseExample')
+            | Dog
+        button.btn.btn-default(id='btn-cat', type='button', data-toggle='collapse', data-target='#collapseMenuCat', aria-expanded='false', aria-controls='collapseExample')
+            | Cat
+        button.btn.btn-default(id='btn-rabbit', type='button', data-toggle='collapse', data-target='#collapseMenuRabbit', aria-expanded='false', aria-controls='collapseExample')
+            | Rabbit
+        button.btn.btn-default(id='btn-hamster', type='button', data-toggle='collapse', data-target='#collapseMenuHamster', aria-expanded='false', aria-controls='collapseExample')
+            | Hamster
+        button.btn.btn-default(id='btn-tortoise', type='button', data-toggle='collapse', data-target='#collapseMenuTortoise', aria-expanded='false', aria-controls='collapseExample')
+            | Tortoise
+
+    div#collapseMenuGeneral.collapse
+        .card.card-block
+            div.jumbotron.col-lg-10
+                fieldset
+                    .media
+                    .media-left.media-middle
+                        img.media-object(src='../../static/img/petsCare/generalCare.jpg' class="img-rounded" width="280" height="280" alt='Lights')
+                    .media-body
+                        .media-heading  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure magni reiciendis, rerum earum voluptates optio soluta quisquam aut cumque quos eius dolores magnam qui saepe tempore aspernatur eligendi repellat assumenda.
+                        |  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quasi nemo odio rerum natus accusamus labore enim itaque repudiandae laudantium, qui, illo animi neque eligendi quae impedit facilis dolorum quia.
+    div#collapseMenuDog.collapse
+        .card.card-block
+            div.jumbotron.col-lg-10
+                fieldset
+                    .media
+                    .media-left.media-middle
+                        img.media-object(src='../../static/img/petsCare/dogCare.jpg' class="img-rounded" width="280" height="280" alt='Lights')
+                    .media-body
+                        .media-heading  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure magni reiciendis, rerum earum voluptates optio soluta quisquam aut cumque quos eius dolores magnam qui saepe tempore aspernatur eligendi repellat assumenda.
+                        |  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quasi nemo odio rerum natus accusamus labore enim itaque repudiandae laudantium, qui, illo animi neque eligendi quae impedit facilis dolorum quia.
+    div#collapseMenuCat.collapse
+        .card.card-block
+            div.jumbotron.col-lg-10
+                fieldset
+                    .media
+                    .media-left.media-middle
+                        img.media-object(src='../../static/img/petsCare/catCare.jpg' class="img-rounded" width="280" height="280" alt='Lights')
+                    .media-body
+                        .media-heading  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure magni reiciendis, rerum earum voluptates optio soluta quisquam aut cumque quos eius dolores magnam qui saepe tempore aspernatur eligendi repellat assumenda.
+                        |  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quasi nemo odio rerum natus accusamus labore enim itaque repudiandae laudantium, qui, illo animi neque eligendi quae impedit facilis dolorum quia.
+    div#collapseMenuRabbit.collapse
+        .card.card-block
+            div.jumbotron.col-lg-10
+                fieldset
+                    .media
+                    .media-left.media-middle
+                        img.media-object(src='../../static/img/petsCare/rabbitCare.jpg' class="img-rounded" width="280" height="280" alt='Lights')
+                    .media-body
+                        .media-heading  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure magni reiciendis, rerum earum voluptates optio soluta quisquam aut cumque quos eius dolores magnam qui saepe tempore aspernatur eligendi repellat assumenda.
+                        |  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quasi nemo odio rerum natus accusamus labore enim itaque repudiandae laudantium, qui, illo animi neque eligendi quae impedit facilis dolorum quia.
+    div#collapseMenuHamster.collapse
+        .card.card-block
+            div.jumbotron.col-lg-10
+                fieldset
+                    .media
+                    .media-left.media-middle
+                        img.media-object(src='../../static/img/petsCare/hamsterCare.jpg' class="img-rounded" width="280" height="280" alt='Lights')
+                    .media-body
+                        .media-heading  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure magni reiciendis, rerum earum voluptates optio soluta quisquam aut cumque quos eius dolores magnam qui saepe tempore aspernatur eligendi repellat assumenda.
+                        |  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quasi nemo odio rerum natus accusamus labore enim itaque repudiandae laudantium, qui, illo animi neque eligendi quae impedit facilis dolorum quia.
+    div#collapseMenuTortoise.collapse
+        .card.card-block
+            div.jumbotron.col-lg-10
+                fieldset
+                    .media
+                    .media-left.media-middle
+                        img.media-object(src='../../static/img/petsCare/tortoiseCase.jpg' class="img-rounded" width="280" height="280" alt='Lights')
+                    .media-body
+                        h4.media-heading  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure magni reiciendis, rerum earum voluptates optio soluta quisquam aut cumque quos eius dolores magnam qui saepe tempore aspernatur eligendi repellat assumenda.
+                        |  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quasi nemo odio rerum natus accusamus labore enim itaque repudiandae laudantium, qui, illo animi neque eligendi quae impedit facilis dolorum quia.

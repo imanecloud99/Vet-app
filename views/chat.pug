@@ -1,0 +1,33 @@
+extends _master
+
+block scripts
+    script(src="/static/js/controllers/chat.controller.js")
+    script(src="/socket.io/socket.io.js")
+block head
+    title Chat Page
+block body
+    h1 Welcome to our chat
+    span#username(style='display:none;')
+        = context.user.username
+    div.jumbotron.col-lg-10
+        .container
+            .row
+                .panel.panel-default
+                    .panel-heading(align="center") Pet Vet Chat
+                    .panel-body
+                        .container#chat
+                            each obj in context.chats
+                                each message in obj.messages
+                                    .row.message-bubble
+                                        p.text-muted
+                                            =message.user + ' '
+                                            span.date posted on:
+                                                = ' ' + message.date
+                                        span
+                                            =message.text
+
+                        .panel-footer
+                            .input-group
+                                input#sendText.form-control(type='text')
+                                span.input-group-btn
+                                    button#sendBtn.btn.btn-default(type='button') Send

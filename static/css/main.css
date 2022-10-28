@@ -1,0 +1,117 @@
+.date {
+    font-weight: normal;
+    color: black;
+}
+
+.message-bubble {
+    padding: 10px 0px 10px 0px;
+}
+
+.message-bubble:nth-child(even) {
+    background-color: #F5F5F5;
+}
+
+.message-bubble > * {
+    padding-left: 10px;
+}
+
+.panel-body {
+    padding: 0px;
+}
+
+.panel-heading {
+    font-weight: bold;
+    background-color: #c34113 !important;
+    color: white !important;
+}
+
+.row.message-bubble > p{
+    font-size: 1em;
+    font-weight: bold;
+    color: #3e152b;
+}
+
+.row.message-bubble > span{
+    font-size: 1em;
+    color: black
+}
+
+#chat {
+    overflow-y: auto;
+    height: 400px;
+}
+
+#password {
+    display: none;
+}
+
+#wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#warning, .info > li, .error > li {
+    display: inline-block;
+    font-weight: bold;
+    color: #b3251b;
+}
+
+.search {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchField {
+    width: 50%;
+    margin-right: 30px;
+}
+
+.navbar-header a {
+    padding-top: 0.8rem;
+}
+
+.petsList {
+    display: inline-block;
+
+    -webkit-columns: 3 200px;
+    -moz-columns: 3 200px;
+    columns: 3 200px;
+    -webkit-column-gap: 5em;
+    -moz-column-gap: 5em;
+    column-gap: 5em;
+}
+
+.petsList > li {
+    display: block;
+}
+
+.spacing {
+    display: block;
+    border-top: 5px solid darkgrey;
+}
+
+.edit, .ok, .day {
+    cursor: pointer;
+}
+
+.btn-default {
+    display: inline-block;
+    margin-right: 30px;
+    float: left;
+}
+
+.btn-success {
+    display: inline-block;
+}
+
+p > inline {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+ol, ul {
+    list-style-type: none;
+}

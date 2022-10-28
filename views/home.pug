@@ -1,0 +1,28 @@
+extends _master
+
+block scripts
+
+block head
+   title Home Page
+block body
+    h1(align='center') Welcome to Pet Vet
+    script(src="/static/js/home.js")
+    #header-carousel.carousel.slide
+            ol.carousel-indicators
+                li.active(data-target="#header-carousel", data-slide-to="0")
+                li(data-target="#header-carousel", data-slide-to="1")
+                li(data-target="#header-carousel", data-slide-to="2")
+            .carousel-inner
+                .item.active
+                    img(src='../static/img/Webp.net-resizeimage.jpg')
+                    .carousel-caption
+                .item
+                    img(src='../static/img/Webp.net-resizeimage_1.jpg')
+                    .carousel-caption
+                .item
+                    img(src='../static/img/Webp.net-resizeimage_2.jpg')
+                    .carousel-caption
+            a.left.carousel-control(href="#header-carousel", data-slide="prev")
+                span.icon-prev
+            a.right.carousel-control(href="#header-carousel", data-slide="next")
+                span.icon-next

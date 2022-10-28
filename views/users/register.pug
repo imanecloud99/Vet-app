@@ -1,0 +1,78 @@
+extends ../_master
+
+block scripts
+
+block head
+    title Register
+block body
+    h1 Register
+    != messages()
+    div.jumbotron.col-lg-10
+        form.form-horizontal(action="/register", method="POST")
+            fieldset
+                section.form-group
+                    label.col-lg-2.control-label(for='inputUsername') Username
+                    div.col-lg-10
+                        input#inputUsername.form-control(placeholder='Username', name='username', autocomplete='off', type='text', required)
+                section.form-group
+                    label.col-lg-2.control-label(for='inputFullName') Full Name
+                    div.col-lg-10
+                        input#inputFullName.form-control(placeholder='Full name', name='fullName', autocomplete='off', type='text', required)
+                section.form-group
+                    label.col-lg-2.control-label(for='inputEmail') Email
+                    div.col-lg-10
+                        input#inputEmail.form-control(placeholder='Email', name='email', autocomplete='off', type='text', required)
+                section.form-group
+                    label.col-lg-2.control-label(for='inputPassword') Password
+                    div.col-lg-10
+                        input#inputPassword.form-control(placeholder='Password', name='password', autocomplete='off', type='password', required)
+                section.form-group
+                    label.col-lg-2.control-label(for='inputPhone') Phone
+                    div.col-lg-10
+                        input#inputPhone.form-control(placeholder='Phone number', name='phone', autocomplete='off', type='tel', required)
+                section.form-group
+                    label.col-lg-2.control-label(for='inputAddress') Address
+                    div.col-lg-10
+                        input#inputAddress.form-control(placeholder="Address" name="address" autocomplete="off" type="address")
+                        span.help-block
+                            | We need your address in case of home visits.
+                section.form-group(style='display:none;')
+                    label.col-lg-2.control-label
+                    div.col-lg-10
+                        input.form-control(name='isAdmin', type='text', value='false')
+                section.form-group
+                    label.col-lg-2.control-label Gender
+                    div.col-lg-10
+                        div.radio.radio-inline(style='padding-left:0')
+                            label
+                                input#optionsRadios1(name='gender', value='male', checked='', type='radio')
+                                | Male
+                        div.radio.radio-inline
+                            label
+                                input#optionsRadios2(name='gender', value='female', type='radio')
+                                | Female
+                section.form-group
+                    div.col-lg-10.col-lg-offset-2
+                        div.checkbox
+                            label
+                                input(type='checkbox', name="acceptPolicy", required)
+                                |  I have read and accept the 
+                                span
+                                    a#policy-link(href="#modal") privacy policy
+                section.form-group
+                    div.col-lg-10.col-lg-offset-2
+                        button.btn.btn-default(type='reset') Cancel
+                        button.btn.btn-primary(type='submit') Submit
+
+    div#policy-modal.modal
+        div.modal-dialog
+            div.modal-content
+                div.modal-header
+                    button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                    h4.modal-title Privacy Policy
+                div.modal-body
+                    p Lorem ipsum dolor sit amet, mei assum fabellas an, in vix debet mandamus, solum verear definitiones no duo. Integre splendide dissentias nam in. Ea nam velit apeirian insolens, sanctus omittam scriptorem no pro. Vis amet wisi reprehendunt ad.
+                div.modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal') Close
+
+    script(src="/static/js/register.js")
